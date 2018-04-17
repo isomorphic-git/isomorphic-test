@@ -13,20 +13,47 @@ Tests are written in Jasmine, because it works in the browser.
 
 ### File fixtures
 
-Tests can 'require' file system fixtures using FixtureFS().
-Place each fixture into a separate directory by name, inside the '__tests__/__fixtures__' directory.
+Tests can require file system fixtures using FixtureFS().
+Place each fixture into a separate directory by name, inside the `__tests__/__fixtures__` directory.
+
 ### Git repo fixtures
 
 The test runner starts its own git server.
-Any directories in '__tests__/__gitrepos__' will be served as git fixtures.
+Any directories in `__tests__/__gitrepos__` will be served as git fixtures.
 
 ### Snapshot fixtures
 
-Jest-style snapshots are saved in '__tests__/__snapshots__'.
+Jest-style snapshots are saved in `__tests__/__snapshots__`.
 They must be loaded manually however, using 'registerSnapshots'.
 
 ### Server response mocking
 
 The 'nockback' library allows you to capture and replay HTTP responses delivered to your tests.
 Get rid of those slow flaky "real" http requests and enjoy fast, predictable responses to your requests.
-Nockback fixtures go in the '__tests__/__nockbacks__' directory.
+Nockback fixtures go in the `__tests__/__nockbacks__` directory.
+
+# Running tests
+
+To run tests use:
+
+```sh
+./node_modules/.bin/isomorphic-test [options]
+```
+
+or add to your `package.json`:
+
+```json
+"scripts": {
+  "test": "isomorphic-test [options]"
+}
+```
+
+where `[options]` are the command line options to control which browsers and tests are run:
+
+```
+Usage: isomorphic-test [options] [test-filename-to-match]
+--node, -n
+--firefox, -f
+--chrome, -c
+--watch, -w
+```
